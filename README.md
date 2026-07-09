@@ -20,6 +20,91 @@ AI agent（你）在接管新服务器后，看到 `AGENTS.md` 或用户提及 s
 
 ---
 
+## Skill 目录（共 54 个）
+
+### 🤖 Hermes 运维 & Agent 协作
+
+- **hermes-ops**: Hermes 运维操作（TUI、Dashboard 调试）
+- **skill-lifecycle**: Skill 生命周期管理
+- **external-agent-coordination**: 多 Agent 协作编排（Codex CLI、AgentMemory MCP）
+- **agentmemory-mcp**: AgentMemory MCP 服务接入
+
+### 🌐 消息平台网关
+
+- **chinese-messaging-platforms**: 飞书/钉钉/企微/微信/QQ Bot 等网关配置
+- **china-network-mirrors**: 中国区网络镜像加速配置
+
+### 📄 文档 & 演示
+
+- **paper-deep-read**: 学术论文三层精读（概览→方法→创新）+ PDF 解析
+- **ppt-forge**: 华为风格高密度 PPT 全链路制作
+- **html-ppt**: HTML 幻灯片制作（16:9 scroll-snap 翻页）
+
+### 📐 编码规范
+
+- **karpathy-guidelines**: Karpathy 风格编码规范
+
+### 🖥️ Ascend NPU 基础
+
+- **ascend-dmi**: Ascend DMI 诊断工具
+- **npu-smi**: NPU-SMI 管理与监控
+- **npu-docker-launcher**: NPU Docker 容器启动
+- **ascend-docker**: Ascend Docker 环境配置
+- **ascend-avi-vnpu**: Ascend AVI / vNPU 虚拟化
+- **torch_npu**: torch_npu 框架与 MCP 工具
+- **remote-npu-test**: 远程 NPU 测试
+- **remote-server-guide**: 远程服务器接入指南（SSH/Fabric/Paramiko）
+
+### ⚙️ Ascend 推理 & 模型转换
+
+- **atc-model-converter**: ATC 模型转换（ONNX→OM）
+- **ascend-migration-analysis**: PyTorch → Ascend 迁移分析
+- **vllm-ascend**: vLLM Ascend 推理框架
+- **vllm-ascend-server**: vLLM Ascend 服务部署
+- **vllm-bench-serve**: vLLM 压测与调优
+- **npu-torchair-infer**: TorchAir 推理 benchmark
+- **wan-ascend-adaptation**: WAN 视频生成模型 Ascend 适配
+- **diffusers-ascend-env-setup**: Diffusers Ascend 环境搭建
+- **diffusers-ascend-pipeline**: Diffusers Ascend 推理流水线
+- **diffusers-ascend-weight-prep**: Diffusers Ascend 权重准备
+- **msmodelslim-quant**: MSModelSlim 量化工具
+- **inferencex-report**: InferenceX 性能报告生成
+- **inference-precision-tensor-dump-compare**: 推理精度 Tensor Dump 比对
+- **ais-bench**: AI 基准测试（精度/性能）
+- **migration-ascend-torchnpu-skills**: torch_npu 整体迁移技能
+- **migration-ascend-torchnpu-skills-environment-setup**: torch_npu 迁移环境搭建
+- **migration-ascend-torchnpu-skills-migration-execution**: torch_npu 迁移执行
+- **migration-ascend-torchnpu-skills-torch-npu-reference**: torch_npu 迁移参考
+
+### 🧮 Ascend 算子开发
+
+- **ascendc**: AscendC 算子开发（完整模板+调试+精度评估）
+- **ascend-opplugin**: Ascend OP Plugin 算子插件开发
+- **npu-op-benchmark**: NPU 算子性能基准测试
+- **triton-ascend-migration**: Triton → Ascend 算子迁移
+
+### 📊 Ascend 性能分析
+
+- **profiling-analysis**: Profiling 性能分析主流程
+- **profiling-analysis-communication**: 通信算子性能分析
+- **profiling-analysis-computing**: 计算算子性能分析
+- **profiling-analysis-hostbound**: Host 瓶颈分析
+- **pytorch-profiling-collection**: PyTorch Profiling 数据采集
+- **mindspeed-llm-train-profiler**: MindSpeed LLM 训练 Profiler
+- **mindspeed-mm-train-profiler**: MindSpeed 多模态 Profiler
+- **training-mfu-calculator**: 训练 MFU 计算器
+
+### 🔧 Git / 项目管理
+
+- **gitcode-merge-flow**: GitCode 合并流程（Issue/PR 创建与审核）
+- **github-issue-rca**: GitHub Issue 根因分析
+- **github-issue-summary**: GitHub Issue 汇总与分类
+- **vllm-daily-pr-issue-tracker**: vLLM 每日 PR/Issue 追踪
+- **hiascend-forum-analyzer**: HiAscend 论坛 Issue 分析
+- **hiascend-forum-fetcher**: HiAscend 论坛 Issue 采集
+
+---
+
 ## sync.sh 用法
 
 | 参数 | 作用 |
@@ -33,35 +118,6 @@ AI agent（你）在接管新服务器后，看到 `AGENTS.md` 或用户提及 s
 | `--dry-run` | 预览不执行 |
 
 无参数时进入交互选择模式。
-
----
-
-## 目录结构
-
-```
-/root/clawcos/skills/
-├── skills/               ← 所有 skill，每个目录含 SKILL.md + 附属文件
-│   ├── paper-deep-read/     论文精读（3 层分析 + PDF 解析）
-│   ├── ppt-forge/           华为风格高密度 PPT 制作
-│   ├── html-ppt/            HTML 幻灯片制作
-│   ├── chinese-messaging-platforms/  飞书/钉钉/企微等网关配置
-│   ├── hermes-ops/          Hermes 运维
-│   ├── external-agent-coordination/  多 agent 协作
-│   ├── ascend-dmi/          Ascend NPU 诊断工具
-│   └── ... 共 54 个
-├── sync.sh
-├── README.md
-└── .gitignore
-```
-
----
-
-## 日常维护
-
-- **添加 skill**：在 `skills/` 下建目录，写 `SKILL.md` → `git add && commit && push`
-- **更新**：编辑对应文件 → 提交推送
-- **删除**：`git rm -r skills/<name>/` → 提交推送
-- **同步到其他服务器**：`git pull && bash sync.sh --all`
 
 ---
 
