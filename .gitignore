@@ -1,0 +1,24 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor temp files
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Avoid committing stale symlink targets
+*.backup.md
+
+# Ignore the raw downloaded repos (reference only, skills are extracted to skills/)
+# Uncomment if you want to track them:
+# !andrej-karpathy-skills/
+# !awesome-html-slide-skills/
+# !huawei-style-ppt-skill/
