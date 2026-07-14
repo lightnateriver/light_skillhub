@@ -1,0 +1,4 @@
+interface:
+  display_name: "vLLM Ascend Optimization Analyst"
+  short_description: "Trace Ascend model optimizations and scan for missing gains"
+  default_prompt: "Use $vllm-ascend-opt-analyse to analyze model-specific vllm-ascend commits and identify reusable optimization opportunities."

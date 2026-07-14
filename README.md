@@ -20,7 +20,7 @@ AI agent（你）在接管新服务器后，看到 `AGENTS.md` 或用户提及 s
 
 ---
 
-## Skill 目录（共 54 个）
+## Skill 目录（共 55 个）
 
 ### 🤖 Hermes 运维 & Agent 协作
 
@@ -61,6 +61,7 @@ AI agent（你）在接管新服务器后，看到 `AGENTS.md` 或用户提及 s
 - **ascend-migration-analysis**: PyTorch → Ascend 迁移分析
 - **vllm-ascend**: vLLM Ascend 推理框架
 - **vllm-ascend-server**: vLLM Ascend 服务部署
+- **vllm-ascend-opt-analyse**: vLLM Ascend 模型优化扫描，按当前代码链路反查 Qwen3.5 / Qwen3-VL / GLM5 / DeepSeek V4 / MiniMax / Kimi / Gemma4 的缺口与可迁移优化模式
 - **vllm-bench-serve**: vLLM 压测与调优
 - **npu-torchair-infer**: TorchAir 推理 benchmark
 - **wan-ascend-adaptation**: WAN 视频生成模型 Ascend 适配
@@ -128,3 +129,21 @@ AI agent（你）在接管新服务器后，看到 `AGENTS.md` 或用户提及 s
 | Hermes Agent | `~/.hermes/skills/<name>/SKILL.md` | 软链接 |
 | Codex CLI | `~/.codex/skills/<name>/SKILL.md` | 软链接 |
 | Claude Code | `~/.claude/skills/<name>.md` | 复制（单文件） |
+
+---
+
+## 新增推荐 Skill
+
+### `vllm-ascend-opt-analyse`
+
+适用场景：
+
+- 扫描 `vllm-ascend` 与上游 `vllm` 当前代码链路，找模型性能优化缺口
+- 用跨模型经验反扫 `Qwen3.5 / Qwen3-VL / GLM5.1/5.2 / DeepSeek V4 Flash/Pro / MiniMax M2.x / Kimi K2.x / Gemma4`
+- 必要时回查 git 历史，把已有优化收敛成可迁移模式库
+
+安装后在 Codex / Hermes 中可直接通过 skill 名触发，例如：
+
+```text
+$vllm-ascend-opt-analyse 分析 /path/to/vllm-ascend 和 /path/to/vllm 的 qwen3.5 当前链路，还有什么性能优化点
+```
